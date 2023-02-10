@@ -6,5 +6,5 @@ import com.cpan252.tekkenreborn.model.Fighter;
 public interface FighterRepository {
   List<Fighter> findAll();
   Optional<Fighter> findById(Long id);
-  int save(Fighter fighter);
+  void save(Fighter fighter);
 }
