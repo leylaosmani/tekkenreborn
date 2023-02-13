@@ -16,15 +16,15 @@
     <div
       class="d-flex flex-column bd-highlight justify-content-center align-items-center w-75 ms-5"
     >
-      <h1 class="mb-3">Design A Tekken Reborn Fighter</h1>
-      
+      <h1 class="mb-3">Design Tekken Reborn Fighter</h1>
+      <!-- We bind @ModelAttribute called fighter to this HTML form-->
       <form method="post" th:object="${fighter}">
         <div th:if="${#fields.hasErrors()}">
           <span> Please correct the problems below and resubmit. </span>
         </div>
         <div class="mb-3">
-          <label for="fighterName" class="form-label">Name of Fighter: </label>
-         
+          <label for="fighterName" class="form-label">Fighter name: </label>
+          <!--By using th:field we "bind" fighter model java fields to html input that we will provide-->
           <input
             type="text"
             class="form-control"
@@ -101,9 +101,7 @@
             th:text="${anime.title}"
           />
         </select>
-        <button type="submit" class="btn btn-primary mt-5">
-          Create Fighter
-        </button>
+        <button class="btn btn-primary mt-5">Create Fighter</button>
       </form>
     </div>
   </body>

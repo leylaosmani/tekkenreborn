@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cpan252.tekkenreborn.model.Fighter;
 import com.cpan252.tekkenreborn.model.Fighter.Anime;
-import com.cpan252.tekkenreborn.repository.impl.JdbcFighterRepository;
-
+import com.cpan252.tekkenreborn.repository.FighterRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class DesignController {
 
     @Autowired
-    private JdbcFighterRepository fighterRepository;
+    private FighterRepository fighterRepository;
 
     @GetMapping
     public String design() {
@@ -52,9 +51,8 @@ public class DesignController {
             return "design";
         }
         log.info("Processing fighter: {}", fighter);
-        var id = fighterRepository.save(fighter);
-        log.info("Saved fighter with id: {}", id);
-        return "redirect:/design";
+        fighterRepository.save(fighter);
+        return "redirect:/fighterlist";
     }
 
 }
